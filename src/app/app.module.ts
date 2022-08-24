@@ -22,7 +22,6 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormControl,
     ReactiveFormsModule,
     FormsModule
   ],

@@ -8,6 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class TemperatureBarComponent implements OnInit {
   // value:any = 51
+  prova: any = ''
 
    control = new FormControl('prova');
   constructor() { }
