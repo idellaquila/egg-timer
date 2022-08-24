@@ -6,6 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./cooking-type.component.css']
 })
 export class CookingTypeComponent implements OnInit {
+  @Input('background')background!:string
   @Input('cookingType') cookingType!:string
   
   constructor() { }

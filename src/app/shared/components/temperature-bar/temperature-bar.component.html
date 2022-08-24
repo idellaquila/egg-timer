@@ -1,14 +1,22 @@
 <div class="slidecontainer">
-  <input
-    [(ngModel)]="rangeValue"
-    type="range"
-    min="50"
-    max="200"
-    value="50"
-    class="slider"
-    id="myRange"
-  />
-  <p>Value: <span id="demo">{{rangeValue}}</span></p>
+  <div class="labels">
+    <div class="label">50°</div>
+    <div class="label">200°</div>
+  </div>
+  <div>
+    <input
+      [(ngModel)]="rangeValue"
+      type="range"
+      min="50"
+      max="200"
+      value="50"
+      class="slider"
+      id="myRange"
+    />
+    <p>
+      Temperature: <span id="demo">{{ rangeValue }}°</span>
+    </p>
+  </div>
 </div>
 
 <!-- formControl="control" -->
