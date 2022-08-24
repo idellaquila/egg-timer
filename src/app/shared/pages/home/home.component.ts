@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   obtainedCookingTime!: any;
   cookingTimer!: any;
   timer!: any;
-  showTime: boolean = false
+  showTime: boolean = false;
 
   eggsData = [
     {
@@ -68,19 +68,25 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getSize(e: any, i:any) {
+  getSize(e: any, i: any) {
+    this.eggsData.forEach((e) => {
+        e.checked = false;
+    })
+
     console.log(e);
-    this.eggsData[i].checked = true
+    this.eggsData[i].checked = true;
     this.selectedSize = e;
-    
   }
 
-  getCookingType(e: any,i:number) {
+  getCookingType(e: any, i: number) {
+    this.eggSize.forEach((e) => {
+        e.checked = false;
+    })
+
     console.log(e);
     this.selectedCookingType = e;
-    this.eggSize[i].checked = true
+    this.eggSize[i].checked = true;
   }
-
 
   temperatureChange(e: any) {
     /**
@@ -97,18 +103,12 @@ export class HomeComponent implements OnInit {
       cookingTime * this.selectedCookingType * this.selectedSize;
 
     console.log(this.obtainedCookingTime);
-
-
-    
   }
-  
-  startTimer(){
+
+  startTimer() {
     this.showTime = true;
     let timerInterval = setInterval(() => {
-      this.cookingTimer = Math.trunc(this.obtainedCookingTime--)
-    }, 1)
-    
-    
+      this.cookingTimer = Math.trunc(this.obtainedCookingTime--);
+    }, 1);
   }
-
 }
