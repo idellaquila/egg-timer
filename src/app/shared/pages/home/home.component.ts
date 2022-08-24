@@ -14,27 +14,32 @@ export class HomeComponent implements OnInit {
   obtainedCookingTime!: any;
   cookingTimer!: any;
   timer!: any;
+  showTime: boolean = false
 
   eggsData = [
     {
       size: 'S',
       weight: '~42g',
       baseCookingTime: 580000,
+      checked: false,
     },
     {
       size: 'M',
       weight: '~49g',
       baseCookingTime: 600000,
+      checked: false,
     },
     {
       size: 'L',
       weight: '~56g',
       baseCookingTime: 640000,
+      checked: false,
     },
     {
       size: 'XL',
       weight: '~63g',
       baseCookingTime: 700000,
+      checked: false,
     },
   ];
 
@@ -57,15 +62,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getSize(e: any) {
+  getSize(e: any, i:any) {
     console.log(e);
+    this.eggsData[i].checked = true
     this.selectedSize = e;
+    
   }
 
   getCookingType(e: any) {
     console.log(e);
     this.selectedCookingType = e;
   }
+
 
   temperatureChange(e: any) {
     /**
@@ -83,11 +91,17 @@ export class HomeComponent implements OnInit {
 
     console.log(this.obtainedCookingTime);
 
-    setInterval(this.countdown, 1);
+
+    
+  }
+  
+  startTimer(){
+    this.showTime = true;
+    let timerInterval = setInterval(() => {
+      this.cookingTimer = this.obtainedCookingTime--
+    }, 1)
+    
+    
   }
 
-  countdown() {
-    this.cookingTimer = this.obtainedCookingTime - 1;
-    console.log(this.cookingTimer);
-  }
 }

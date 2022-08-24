@@ -1,10 +1,39 @@
+.title{
+    text-align: center;
+    padding: 2rem;
+}
+
 .eggSizeWrapper{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-bottom: 2rem;
 }
 .eggCookingType{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+.timer{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%);
+}
+.pot{
+    position: relative;
+}
+
+.play{
+    width: 100px;
+    height: 100px;
+    top:50%
+}
+hr{
+    width: 100%;
+    border: 1px solid white;
+    margin-bottom: 2rem;
+}
+.selected{
+    background-color: red;
 }
