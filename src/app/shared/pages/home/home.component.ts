@@ -47,14 +47,20 @@ export class HomeComponent implements OnInit {
     {
       cookingType: 'Soft',
       time: 0.8,
+      background: '#f2542d',
+      checked: false,
     },
     {
       cookingType: 'Medium',
       time: 1.0,
+      background: '#fac05e',
+      checked: false,
     },
     {
       cookingType: 'Hard',
       time: 1.2,
+      background: '#f7c59f',
+      checked: false,
     },
   ];
 
@@ -69,9 +75,10 @@ export class HomeComponent implements OnInit {
     
   }
 
-  getCookingType(e: any) {
+  getCookingType(e: any,i:number) {
     console.log(e);
     this.selectedCookingType = e;
+    this.eggSize[i].checked = true
   }
 
 
@@ -98,7 +105,7 @@ export class HomeComponent implements OnInit {
   startTimer(){
     this.showTime = true;
     let timerInterval = setInterval(() => {
-      this.cookingTimer = this.obtainedCookingTime--
+      this.cookingTimer = Math.trunc(this.obtainedCookingTime--)
     }, 1)
     
     
