@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class EggSizeComponent implements OnInit {
   @Input('weight') weight! : string
   @Input('size') size! : string
+  @Input('background') background! : string
+  @Input('color') color! : string
   constructor() { }
   
   ngOnInit(): void {
