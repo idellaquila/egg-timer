@@ -1,0 +1,13 @@
+.egg {
+    width: 3rem;
+    height: 4.2rem;
+    /* da cambiare il colore */
+    background: #ffc000; 
+
+    -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }

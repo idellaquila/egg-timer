@@ -1,1 +1,19 @@
-<p>home works!</p>
+<div class="eggSizeWrapper">
+  <app-egg-size
+  (click)="getSize(e.baseCookingTime)"
+    *ngFor="let e of eggsData"
+    [size]="e.size"
+    [weight]="e.weight"
+  ></app-egg-size>
+</div>
+<div class="eggCookingType">
+  <app-cooking-type
+  (click)="getCookingType(s.time)"
+    *ngFor="let s of eggSize"
+    [cookingType]="s.cookingType"
+  ></app-cooking-type>
+</div>
+<app-temperature-bar [rangeValue]="rangeValue" (change)="temperatureChange($event)"></app-temperature-bar>
+
+<div>{{cookingTimer}}</div>
+<app-timer></app-timer>
