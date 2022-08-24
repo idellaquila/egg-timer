@@ -1,1 +1,15 @@
-<p>home works!</p>
+<div class="eggSizeWrapper">
+  <app-egg-size
+    *ngFor="let e of eggsData"
+    [size]="e.size"
+    [weight]="e.weight"
+  ></app-egg-size>
+</div>
+<div class="eggCookingType">
+  <app-cooking-type
+    *ngFor="let s of eggSize"
+    [cookingType]="s.cookingType"
+  ></app-cooking-type>
+</div>
+<app-temperature-bar></app-temperature-bar>
+<app-timer></app-timer>
