@@ -8,6 +8,7 @@ import { EggSizeComponent } from './shared/components/egg-size/egg-size.componen
 import { CookingTypeComponent } from './shared/components/cooking-type/cooking-type.component';
 import { TemperatureBarComponent } from './shared/components/temperature-bar/temperature-bar.component';
 import { TimerComponent } from './shared/components/timer/timer.component';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,10 @@ import { TimerComponent } from './shared/components/timer/timer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormControl,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ɵɵsetComponentScope } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-temperature-bar',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./temperature-bar.component.css']
 })
 export class TemperatureBarComponent implements OnInit {
-
+  // value:any = 51
+  prova:any 
+   control = new FormControl('prova');
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.control)
+    }
   }
 
-}
+
+
+
+
