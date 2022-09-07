@@ -25,7 +25,7 @@
 ></app-temperature-bar>
 
 <div class="pot">
-  <div class="timer" *ngIf="showTime">{{ minutes}}:{{seconds}}</div>
+  <div class="timer" *ngIf="showTime">{{ countdown}}</div>
   <div class="timer play" *ngIf="!showTime" (click)="startTimer()">
     <svg
       version="1.1"

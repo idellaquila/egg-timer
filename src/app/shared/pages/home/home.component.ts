@@ -11,11 +11,12 @@ export class HomeComponent implements OnInit {
   selectedTemperature!: any;
   selectedSize!: any;
   selectedCookingType!: any;
-  //   cookingTime!: any;
   obtainedCookingTime!: any;
   cookingTimer!: any;
   timer!: any;
   showTime: boolean = false;
+  countdown:any;
+
 
   eggsData = [
     {
@@ -105,16 +106,27 @@ export class HomeComponent implements OnInit {
 
     console.log(this.obtainedCookingTime);
   }
-  minutes: any;
-  seconds: any;
+
   startTimer() {
     this.showTime = true;
-    let timerInterval = setInterval(() => {
-      this.cookingTimer = Math.trunc(this.obtainedCookingTime--);
-      let tempTime = moment.duration(this.cookingTimer, 'seconds');
-      this.minutes = tempTime.minutes();
-      this.seconds = tempTime.seconds();
+    // let timerInterval = setInterval(() => {
+    //   this.cookingTimer = Math.trunc(this.obtainedCookingTime--);
+    //   let tempTime = moment.duration(this.cookingTimer, 'seconds');
+    //   this.minutes = tempTime.minutes();
+    //   this.seconds = tempTime.seconds();
+    // }, 1000);
+    //     const eventTime = 1366549200;
+    // const currentTime = 1366547400;
+    // const diffTime = eventTime - currentTime;
+
+    let duration: any = moment.duration(
+      this.obtainedCookingTime,
+      'milliseconds'
+    );
+
+    setInterval(() => {
+      duration = moment.duration(duration - 1000, 'milliseconds');
+      this.countdown = duration.minutes() + ':' + duration.seconds();
     }, 1000);
   }
-  
 }
