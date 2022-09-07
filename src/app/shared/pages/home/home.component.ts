@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-home',
@@ -70,8 +71,8 @@ export class HomeComponent implements OnInit {
 
   getSize(e: any, i: any) {
     this.eggsData.forEach((e) => {
-        e.checked = false;
-    })
+      e.checked = false;
+    });
 
     console.log(e);
     this.eggsData[i].checked = true;
@@ -80,8 +81,8 @@ export class HomeComponent implements OnInit {
 
   getCookingType(e: any, i: number) {
     this.eggSize.forEach((e) => {
-        e.checked = false;
-    })
+      e.checked = false;
+    });
 
     console.log(e);
     this.selectedCookingType = e;
@@ -104,11 +105,16 @@ export class HomeComponent implements OnInit {
 
     console.log(this.obtainedCookingTime);
   }
-
+  minutes: any;
+  seconds: any;
   startTimer() {
     this.showTime = true;
     let timerInterval = setInterval(() => {
       this.cookingTimer = Math.trunc(this.obtainedCookingTime--);
-    }, 1);
+      let tempTime = moment.duration(this.cookingTimer, 'seconds');
+      this.minutes = tempTime.minutes();
+      this.seconds = tempTime.seconds();
+    }, 1000);
   }
+  
 }
