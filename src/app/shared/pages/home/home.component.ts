@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
   cookingTimer!: any;
   timer!: any;
   showTime: boolean = false;
-  countdown:any;
-
+  countdown: any;
+  interval: any;
 
   eggsData = [
     {
@@ -75,7 +75,7 @@ export class HomeComponent implements OnInit {
       e.checked = false;
     });
 
-    console.log(e);
+
     this.eggsData[i].checked = true;
     this.selectedSize = e;
   }
@@ -85,7 +85,7 @@ export class HomeComponent implements OnInit {
       e.checked = false;
     });
 
-    console.log(e);
+
     this.selectedCookingType = e;
     this.eggSize[i].checked = true;
   }
@@ -104,29 +104,25 @@ export class HomeComponent implements OnInit {
     this.obtainedCookingTime =
       cookingTime * this.selectedCookingType * this.selectedSize;
 
-    console.log(this.obtainedCookingTime);
+
   }
 
   startTimer() {
     this.showTime = true;
-    // let timerInterval = setInterval(() => {
-    //   this.cookingTimer = Math.trunc(this.obtainedCookingTime--);
-    //   let tempTime = moment.duration(this.cookingTimer, 'seconds');
-    //   this.minutes = tempTime.minutes();
-    //   this.seconds = tempTime.seconds();
-    // }, 1000);
-    //     const eventTime = 1366549200;
-    // const currentTime = 1366547400;
-    // const diffTime = eventTime - currentTime;
-
     let duration: any = moment.duration(
       this.obtainedCookingTime,
       'milliseconds'
     );
+    if (this.obtainedCookingTime > 0) {
+      this.interval = setInterval(() => {
+        if (duration > 0) {
+          duration = moment.duration(duration - 1000, 'milliseconds');
+          this.countdown = duration.minutes() + ':' + duration.seconds();
+        } else{
+          clearInterval(this.interval);
+        }
+      }, 1000);
 
-    setInterval(() => {
-      duration = moment.duration(duration - 1000, 'milliseconds');
-      this.countdown = duration.minutes() + ':' + duration.seconds();
-    }, 1000);
+    }
   }
 }
